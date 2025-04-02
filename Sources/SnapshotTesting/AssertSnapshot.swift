@@ -1,10 +1,10 @@
 import XCTest
 
-#if canImport(Testing)
-  // NB: We are importing only the implementation of Testing because that framework is not available
-  //     in Xcode UI test targets.
-  @_implementationOnly import Testing
-#endif
+//#if canImport(Testing)
+//  // NB: We are importing only the implementation of Testing because that framework is not available
+//  //     in Xcode UI test targets.
+//  private import Testing
+//#endif
 
 /// Enhances failure messages with a command line diff tool expression that can be copied and pasted
 /// into a terminal.
@@ -24,15 +24,15 @@ public var diffTool: SnapshotTestingConfiguration.DiffTool {
 @_spi(Internals)
 public var _diffTool: SnapshotTestingConfiguration.DiffTool {
   get {
-    #if canImport(Testing)
-      if let test = Test.current {
-        for trait in test.traits.reversed() {
-          if let diffTool = (trait as? _SnapshotsTestTrait)?.configuration.diffTool {
-            return diffTool
-          }
-        }
-      }
-    #endif
+//    #if canImport(Testing)
+//      if let test = Test.current {
+//        for trait in test.traits.reversed() {
+//          if let diffTool = (trait as? _SnapshotsTestTrait)?.configuration.diffTool {
+//            return diffTool
+//          }
+//        }
+//      }
+//    #endif
     return __diffTool
   }
   set {
@@ -57,15 +57,15 @@ public var isRecording: Bool {
 @_spi(Internals)
 public var _record: SnapshotTestingConfiguration.Record {
   get {
-    #if canImport(Testing)
-      if let test = Test.current {
-        for trait in test.traits.reversed() {
-          if let record = (trait as? _SnapshotsTestTrait)?.configuration.record {
-            return record
-          }
-        }
-      }
-    #endif
+//    #if canImport(Testing)
+//      if let test = Test.current {
+//        for trait in test.traits.reversed() {
+//          if let record = (trait as? _SnapshotsTestTrait)?.configuration.record {
+//            return record
+//          }
+//        }
+//      }
+//    #endif
     return __record
   }
   set {
